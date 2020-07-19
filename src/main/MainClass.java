@@ -239,8 +239,7 @@ public class MainClass {
             
         }
         System.out.println(sum);
-        
-        System.out.println(sum);
+
 //       PanelResults.tableResults.revalidate();
          
          
