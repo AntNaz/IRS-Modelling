@@ -11,12 +11,12 @@ import Containers.PanelResults;
 import Objects.DoublePoints;
 import Objects.Element;
 import Objects.TripplePoints;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -84,7 +84,9 @@ public class MainClass {
     
     MainClass () {
         MainWindow frame = new MainWindow();
-        
+//      Установка иконки приложению
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getClassLoader().getResource("icon.png")));
+
 //        String[] columnNames = {"name", "Fe2", "Fe3"};
 //            String[] names = new String[20];
 //            String[][] data = new String[20][3];
