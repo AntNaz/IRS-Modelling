@@ -54,12 +54,16 @@ public class SVGWriter {
                         (int)(MainClass.getMatrix()[i+2][j+1].getX())+"," +  (int)(MainClass.getMatrix()[i+2][j+1].getY()) + " " +  (int)(MainClass.getMatrix()[i+2][j].getX())+ "," + (int)(MainClass.getMatrix()[i+2][j].getY()) + " " +  (int)(MainClass.getMatrix()[i+1][j+1].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j+1].getY()) + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\" />\n");
                            
                     }
+                    if((i%2==0&&j==0)||(i%2==1&&j==MainClass.getY()*2-2)){
+                        writer.write("<line x1 = \"" + MainClass.getMatrix()[i][j].getX() + "\" y1 = \"" + MainClass.getMatrix()[i][j].getY()+ "\" x2 = \"" + MainClass.getMatrix()[i][j+1].getX() + "\" y2 = \"" + MainClass.getMatrix()[i][j+1].getY()+"\" stroke=\"black\"/>"); 
+                    }
                     
                 }
             }
             
-            
-             for (int i = 0; i<MainClass.getX(); i++) {
+            writer.write("<line x1 = \"" + MainClass.getMatrix()[0][1].getX() + "\" y1 = \"" + MainClass.getMatrix()[0][1].getY()+ "\" x2 = \"" + MainClass.getMatrix()[1][0].getX() + "\" y2 = \"" + MainClass.getMatrix()[1][0].getY()+"\" stroke=\"black\"/>");
+            writer.write("<line x1 = \"" + MainClass.getMatrix()[MainClass.getX()-2][MainClass.getY()*2-1].getX() + "\" y1 = \"" + MainClass.getMatrix()[MainClass.getX()-2][MainClass.getY()*2-1].getY()+ "\" x2 = \"" + MainClass.getMatrix()[MainClass.getX()-1][MainClass.getY()*2-2].getX() + "\" y2 = \"" + MainClass.getMatrix()[MainClass.getX()-1][MainClass.getY()*2-2].getY()+"\" stroke=\"black\"/>");
+            for (int i = 0; i<MainClass.getX(); i++) {
                 for (int j = 0; j<MainClass.getY()*2; j++) {
                     if (MainClass.getMatrix()[i][j].getName().equals("Al\u00B3\u207A")) {
                         writer.write(
