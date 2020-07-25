@@ -12,9 +12,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import main.MainClass;
+import main.SVGWriter;
 
 /**
  *
@@ -162,6 +166,16 @@ public class MainWindow extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     if (e.getActionCommand().equals("Exit")) {
                         System.exit(0);
+                    }
+                }
+            });
+            fileItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        SVGWriter.writeSVG();
+                    } catch (IOException ex) {
+                        System.out.println("error");
                     }
                 }
             });
