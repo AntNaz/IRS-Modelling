@@ -26,6 +26,14 @@ public class SVGWriter {
 //"      <circle r=\"65\" cx=\"70\" cy=\"70\" \n" +
 //"    fill=\"orangered\" stroke=\"crimson\" stroke-width=\"5\"\n" +
 "  />\n");
+            
+            for (int i = 0; i<MainClass.getX(); i++){
+                for (int j = 0; j<MainClass.getY()*2; j++) {
+                    
+                }
+            }
+            
+            
              for (int i = 0; i<MainClass.getX(); i++) {
                 for (int j = 0; j<MainClass.getY()*2; j++) {
                     if (MainClass.getMatrix()[i][j].getName().equals("Al\u00B3\u207A")) {

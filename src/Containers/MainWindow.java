@@ -173,7 +173,10 @@ public class MainWindow extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        SVGWriter.writeSVG();
+                        if(MainClass.getMatrix()[0][0] != null){
+                            SVGWriter.writeSVG();
+                        }
+                        else JOptionPane.showMessageDialog(null, "Модель не построена!", "Error!", JOptionPane.ERROR_MESSAGE);
                     } catch (IOException ex) {
                         System.out.println("error");
                     }
