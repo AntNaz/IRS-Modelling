@@ -29,6 +29,31 @@ public class SVGWriter {
             
             for (int i = 0; i<MainClass.getX(); i++){
                 for (int j = 0; j<MainClass.getY()*2; j++) {
+                    if (i%2==0&&j%2==0&&j>1&&j<MainClass.getY()*2-1&&i<MainClass.getX()-2){
+                        int idColor = MainClass.getMatrix()[i][j].getId()+MainClass.getMatrix()[i][j+1].getId()+MainClass.getMatrix()[i+1][j].getId()+MainClass.getMatrix()[i+2][j+1].getId()+MainClass.getMatrix()[i+2][j].getId()+MainClass.getMatrix()[i+1][j-1].getId()+10000;
+                        String stringColor = Integer.toString(idColor);
+                        String color;
+                        if (Character.getNumericValue(stringColor.charAt(4))>3) color = "white";
+                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "gainsboro";
+                        else color = "darkgrey";
+                        writer.write(
+                        "<polygon points=\"" + (int)(MainClass.getMatrix()[i][j].getX()) + "," + (int)(MainClass.getMatrix()[i][j].getY())+" " + (int)(MainClass.getMatrix()[i][j+1].getX()) +"," + (int)(MainClass.getMatrix()[i][j+1].getY()) +" " + (int)(MainClass.getMatrix()[i+1][j].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j].getY()) + " " +   
+                        (int)(MainClass.getMatrix()[i+2][j+1].getX())+"," +  (int)(MainClass.getMatrix()[i+2][j+1].getY()) + " " +  (int)(MainClass.getMatrix()[i+2][j].getX())+ "," + (int)(MainClass.getMatrix()[i+2][j].getY()) + " " +  (int)(MainClass.getMatrix()[i+1][j-1].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j-1].getY()) + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\" />\n");
+                           
+                    }
+                    
+                    if (i%2==1&&j%2==0&&i<MainClass.getX()-2&&j<MainClass.getY()*2-2) {
+                        int idColor = MainClass.getMatrix()[i][j].getId()+MainClass.getMatrix()[i][j+1].getId() + MainClass.getMatrix()[i+1][j+2].getId() +  MainClass.getMatrix()[i+2][j+1].getId() + MainClass.getMatrix()[i+2][j].getId() + MainClass.getMatrix()[i+1][j+1].getId() +10000;
+                        String stringColor = Integer.toString(idColor);
+                        String color;
+                        if (Character.getNumericValue(stringColor.charAt(4))>3) color = "white";
+                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "gainsboro";
+                        else color = "darkgrey";
+                        writer.write(
+                        "<polygon points=\"" + (int)(MainClass.getMatrix()[i][j].getX()) + "," + (int)(MainClass.getMatrix()[i][j].getY())+" " + (int)(MainClass.getMatrix()[i][j+1].getX()) +"," + (int)(MainClass.getMatrix()[i][j+1].getY()) +" " + (int)(MainClass.getMatrix()[i+1][j+2].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j+2].getY()) + " " +   
+                        (int)(MainClass.getMatrix()[i+2][j+1].getX())+"," +  (int)(MainClass.getMatrix()[i+2][j+1].getY()) + " " +  (int)(MainClass.getMatrix()[i+2][j].getX())+ "," + (int)(MainClass.getMatrix()[i+2][j].getY()) + " " +  (int)(MainClass.getMatrix()[i+1][j+1].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j+1].getY()) + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\" />\n");
+                           
+                    }
                     
                 }
             }
@@ -38,28 +63,28 @@ public class SVGWriter {
                 for (int j = 0; j<MainClass.getY()*2; j++) {
                     if (MainClass.getMatrix()[i][j].getName().equals("Al\u00B3\u207A")) {
                         writer.write(
-"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()-4) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY()-4)+  "\" \n" +
-"     fill=\"none\" stroke=\"black\" stroke-width=\"1\"\n" +
+"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY())+  "\" \n" +
+"     fill=\"white\" stroke=\"black\" stroke-width=\"1\"\n" +
 "     />\n");
                     }
                     if (MainClass.getMatrix()[i][j].getName().equals("Fe\u00B3\u207A")) {
                         writer.write(
-"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()-4) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY()-4)+  "\" \n" +
+"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY())+  "\" \n" +
 "     fill=\"black\" stroke=\"black\" stroke-width=\"1\"\n" +
 "     />\n");
                     }
                     if (MainClass.getMatrix()[i][j].getName().equals("Fe\u00B2\u207A")) {
                         writer.write(
-"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()-4) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY()-4)+  "\" \n" +
+"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY())+  "\" \n" +
 "     fill=\"black\" stroke=\"black\" stroke-width=\"1\"\n" +
 "     />\n" + 
-"     <circle r=\"3\" cx=\""+  (MainClass.getMatrix()[i][j].getX()-4) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY()-4)+  "\" \n" +
+"     <circle r=\"3\" cx=\""+  (MainClass.getMatrix()[i][j].getX()) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY())+  "\" \n" +
 "     fill=\"white\" stroke=\"black\" stroke-width=\"1\"\n" +
 "     />\n");
                     }
                     if (MainClass.getMatrix()[i][j].getName().equals("Mg\u00B2\u207A")) {
                         writer.write(
-"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()-4) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY()-4)+  "\" \n" +
+"     <circle r=\"5\" cx=\""+  (MainClass.getMatrix()[i][j].getX()) +"\" cy=\"" +  (MainClass.getMatrix()[i][j].getY())+  "\" \n" +
 "     fill=\"grey\" stroke=\"black\" stroke-width=\"1\"\n" +
 "     />\n");
                     }
