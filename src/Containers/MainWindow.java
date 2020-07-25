@@ -135,14 +135,7 @@ public class MainWindow extends JFrame {
         //graphics.setBorder(BorderFactory.createLoweredBevelBorder());
         
     }
-//    public void setTable(String[][] data, String[] names){
-//        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-//        tableResults.setModel(model);
-//        tableResults.revalidate();
-//        panelResults.revalidate();
-//        panelResults.repaint();
-//    }
-
+    
     public void createMenu() {
             JMenuBar menuBar = new JMenuBar();
             setJMenuBar(menuBar);
@@ -155,7 +148,7 @@ public class MainWindow extends JFrame {
             menuBar.add(help);
 
 
-            JMenuItem fileItem = new JMenuItem("Save as");
+            JMenuItem fileItem = new JMenuItem("Save image");
             JMenuItem fileExit = new JMenuItem("Exit");
             menuFile.add(fileItem);
             menuFile.addSeparator();
