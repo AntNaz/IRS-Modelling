@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class SVGWriter {
     public static void writeSVG() throws IOException{
-        try(FileWriter writer = new FileWriter("Image.svg", false))
+        try(FileWriter writer = new FileWriter("IRS-Modelling.svg", false))
         {
             writer.write(
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
@@ -34,8 +34,8 @@ public class SVGWriter {
                         String stringColor = Integer.toString(idColor);
                         String color;
                         if (Character.getNumericValue(stringColor.charAt(4))>3) color = "white";
-                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "gainsboro";
-                        else color = "darkgrey";
+                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "dimgray";
+                        else color = "gainsboro";
                         writer.write(
                         "<polygon points=\"" + (int)(MainClass.getMatrix()[i][j].getX()) + "," + (int)(MainClass.getMatrix()[i][j].getY())+" " + (int)(MainClass.getMatrix()[i][j+1].getX()) +"," + (int)(MainClass.getMatrix()[i][j+1].getY()) +" " + (int)(MainClass.getMatrix()[i+1][j].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j].getY()) + " " +   
                         (int)(MainClass.getMatrix()[i+2][j+1].getX())+"," +  (int)(MainClass.getMatrix()[i+2][j+1].getY()) + " " +  (int)(MainClass.getMatrix()[i+2][j].getX())+ "," + (int)(MainClass.getMatrix()[i+2][j].getY()) + " " +  (int)(MainClass.getMatrix()[i+1][j-1].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j-1].getY()) + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\" />\n");
@@ -47,8 +47,8 @@ public class SVGWriter {
                         String stringColor = Integer.toString(idColor);
                         String color;
                         if (Character.getNumericValue(stringColor.charAt(4))>3) color = "white";
-                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "gainsboro";
-                        else color = "darkgrey";
+                        else if ((Character.getNumericValue(stringColor.charAt(1))+Character.getNumericValue(stringColor.charAt(2)))>3) color = "dimgray";
+                        else color = "gainsboro";
                         writer.write(
                         "<polygon points=\"" + (int)(MainClass.getMatrix()[i][j].getX()) + "," + (int)(MainClass.getMatrix()[i][j].getY())+" " + (int)(MainClass.getMatrix()[i][j+1].getX()) +"," + (int)(MainClass.getMatrix()[i][j+1].getY()) +" " + (int)(MainClass.getMatrix()[i+1][j+2].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j+2].getY()) + " " +   
                         (int)(MainClass.getMatrix()[i+2][j+1].getX())+"," +  (int)(MainClass.getMatrix()[i+2][j+1].getY()) + " " +  (int)(MainClass.getMatrix()[i+2][j].getX())+ "," + (int)(MainClass.getMatrix()[i+2][j].getY()) + " " +  (int)(MainClass.getMatrix()[i+1][j+1].getX()) + "," + (int)(MainClass.getMatrix()[i+1][j+1].getY()) + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\" />\n");

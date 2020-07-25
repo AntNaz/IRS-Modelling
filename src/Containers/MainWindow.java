@@ -175,6 +175,7 @@ public class MainWindow extends JFrame {
                     try {
                         if(MainClass.getMatrix()[0][0] != null){
                             SVGWriter.writeSVG();
+                            JOptionPane.showMessageDialog(null, "Image was saved.");
                         }
                         else JOptionPane.showMessageDialog(null, "Модель не построена!", "Error!", JOptionPane.ERROR_MESSAGE);
                     } catch (IOException ex) {
