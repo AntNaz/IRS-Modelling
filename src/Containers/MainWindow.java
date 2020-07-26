@@ -31,7 +31,7 @@ public class MainWindow extends JFrame {
     
     private JPanel results = new JPanel();
     private static DrawPanel graphics = new DrawPanel();
-    private JPanel info = new DrawInfo();
+    public static JPanel info = new DrawInfo();
     public static JScrollPane scrollGraph = new JScrollPane(graphics);
     public static PanelResults panelResults = new PanelResults();
     

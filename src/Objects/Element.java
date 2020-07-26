@@ -10,6 +10,7 @@ public class Element {
     private int x;
     private int y;
     private int id;
+    private int amount = 0;
     
     
     public Element(){
@@ -48,6 +49,16 @@ public class Element {
     public int getY (){
         return y;
     }
+    public int getAmount(){
+        return amount;
+    }
+    public void setZeroAmount(){
+        amount = 0;
+    }
+    public void increaseAmount(){
+        this.amount++;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;

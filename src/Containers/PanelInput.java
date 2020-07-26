@@ -127,6 +127,8 @@ public class PanelInput extends JPanel {
                         JOptionPane.showMessageDialog(null, "Введите числовые значения!", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     summ = 0;
+                    MainWindow.info.revalidate();
+                    MainWindow.info.repaint();
                      //DrawPanel.setK();
                     
                 }
@@ -151,6 +153,9 @@ public class PanelInput extends JPanel {
                         MainClass.getTripplePoints()[i].setAmountsZero();
                     }
                     MainWindow.panelResults.setUp();
+                    MainClass.setZeroAmounts();
+                    MainWindow.info.revalidate();
+                    MainWindow.info.repaint();
                     
                 }
             });

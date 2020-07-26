@@ -38,6 +38,12 @@ public class MainClass {
     private static  String fe2 = "Fe\u00B2\u207A";
     private static  String fe3 = "Fe\u00B3\u207A";
     private static  String mg = "Mg\u00B2\u207A";
+    private static int alAmount = 0;
+    private static int fe2Amount = 0;
+    private static int fe3Amount = 0;
+    private static int mgAmount = 0;
+    
+    
         
     private static  DoublePoints fe2Fe2 = new DoublePoints(fe2, fe2);
     private static  DoublePoints fe2Fe3 = new DoublePoints(fe2, fe3);
@@ -111,6 +117,27 @@ public class MainClass {
             }
         });
     }
+    public static int getAlAmount(){
+        return alAmount;
+    }
+    public static int getFe2Amount(){
+        return fe2Amount;
+    }
+    public static int getFe3Amount(){
+        return fe3Amount;
+    }
+    public static int getMgAmount(){
+        return mgAmount;
+    }
+    public static void setZeroAmounts(){
+        alAmount = 0;
+        fe2Amount = 0;
+        fe3Amount = 0;
+        mgAmount = 0;
+    }
+    
+    
+    
     
     public static void buildElements(){   
         for (int n = 0; n<points.length;n++){
@@ -220,6 +247,10 @@ public class MainClass {
         for (int i =0; i<x; i++) {
             for(int j = 0; j<2*y; j++) {
                 System.out.printf("%5s", matrix[i][j].getName());
+                if ( matrix[i][j].getName().equals(al))  alAmount++;
+                if ( matrix[i][j].getName().equals(fe2))  fe2Amount++;
+                if ( matrix[i][j].getName().equals(fe3))  fe3Amount++;
+                if ( matrix[i][j].getName().equals(mg))  mgAmount++;                
                 sum++;
             }
             System.out.println("");
@@ -241,6 +272,7 @@ public class MainClass {
             
         }
         System.out.println(sum);
+        System.out.println(alAmount);
 
 //       PanelResults.tableResults.revalidate();
          
