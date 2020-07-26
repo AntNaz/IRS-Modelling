@@ -33,7 +33,7 @@ public class DrawInfo extends JPanel{
         g2D.drawOval(x/16, y, 10, 10);
         g2D.drawString("Al\u00B3\u207A",x/16 + 20, y+11);
         g2D.setFont(new Font( "SansSerif", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getAlAmount()/20.0+"%)",x/16 + 45, y+11);
+        g2D.drawString("("+MainClass.getAlAmount()/10.0+"%)",x/16 + 45, y+11);
            
         g.setColor(Color.BLACK);
         g.fillOval(x/4+10, y , 10, 10);
@@ -41,7 +41,7 @@ public class DrawInfo extends JPanel{
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
         g2D.drawString("Fe\u00B3\u207A", x/4+10 + 20, y+11);
         g2D.setFont(new Font( "SansSerif", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getFe3Amount()/20.0+"%)",x/4+10 + 50, y+11);
+        g2D.drawString("("+MainClass.getFe3Amount()/10.0+"%)",x/4+10 + 50, y+11);
         
         
         g.fillOval(x/2,y, 10, 10);
@@ -52,7 +52,7 @@ public class DrawInfo extends JPanel{
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
         g2D.drawString("Fe\u00B2\u207A", x/2 + 20, y+11);
         g2D.setFont(new Font( "SansSerif", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getFe2Amount()/20.0+"%)",x/2 + 50, y+11);
+        g2D.drawString("("+MainClass.getFe2Amount()/10.0+"%)",x/2 + 50, y+11);
         
         g.setColor(Color.LIGHT_GRAY);
         g.fillOval(x/4*3, y, 10, 10);
@@ -61,7 +61,7 @@ public class DrawInfo extends JPanel{
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
         g2D.drawString("Mg\u00B2\u207A", x/4*3 + 20, y+11);
         g2D.setFont(new Font( "SansSerif", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getMgAmount()/20.0+"%)",x/4*3 + 55, y+11);
+        g2D.drawString("("+MainClass.getMgAmount()/10.0+"%)",x/4*3 + 55, y+11);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
         int xp = this.getWidth()/16;
         int yp = 40;
@@ -73,9 +73,9 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p);
-        g2D.drawString("пр. Al", xp+60, yp+24);
+        g2D.drawString("1", xp+60, yp+24);
         
-        xp = (int) (this.getWidth()/16*6);
+        xp = (int) (this.getWidth()/32*14);
         int[] xPoints2 = {xp,(int)((54-18)/k)+xp, (int) (54/k)+xp, (int)((54-18)/k)+xp, xp, xp-(int)(18/k)};
         int[] yPoints2 = {yp,yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp, 2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp,2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp};
         Polygon p2 = new Polygon(xPoints2,yPoints2,6);
@@ -85,9 +85,9 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p2);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p2);
-        g2D.drawString("Ср.", xp+60, yp+24);
+        g2D.drawString("2", xp+60, yp+24);
         
-        xp = this.getWidth()/16*11;
+        xp = this.getWidth()/16*13;
         
         int[] xPoints3 = {xp,(int)((54-18)/k)+xp, (int) (54/k)+xp, (int)((54-18)/k)+xp, xp, xp-(int)(18/k)};
         int[] yPoints3 = {yp,yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp, 2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp,2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp};
@@ -96,7 +96,7 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p3);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p3);
-        g2D.drawString("пр. Fe", xp+60, yp+24);
+        g2D.drawString("3", xp+60, yp+24);
         
     }
 }
