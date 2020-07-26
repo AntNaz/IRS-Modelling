@@ -41,7 +41,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setTitle("IRS-Modelling");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(800, 400));        
+        setMinimumSize(new Dimension(1000, 400));        
         LayoutManager layout = new BorderLayout();
         setLayout(layout);
         
@@ -57,7 +57,7 @@ public class MainWindow extends JFrame {
         // -------------------GraphicPanel------------------------
         
         info.setBorder(BorderFactory.createLoweredBevelBorder());
-        info.setPreferredSize(new Dimension(width, 70));
+        info.setPreferredSize(new Dimension(width, 90));
         
         createGraphicPanel();
         

@@ -231,11 +231,13 @@ for (int i = 0; i<MainClass.getX(); i++) {
         if (MainClass.getMatrix()[i][j].getName().equals("Fe\u00B3\u207A")) { //Fe3+
             g.setColor(Color.BLACK);
             g.fillOval((int)(MainClass.getMatrix()[i][j].getX()*k)-4, (int)(MainClass.getMatrix()[i][j].getY()*k)-4, 10, 10);
+            g.drawOval((int)(MainClass.getMatrix()[i][j].getX()*k)-4, (int)(MainClass.getMatrix()[i][j].getY()*k)-4, 10, 10);
         }
         if (MainClass.getMatrix()[i][j].getName().equals("Fe\u00B2\u207A")) { // Fe2+
             g.setColor(Color.BLACK);
             //g.drawOval((int)(MainClass.getMatrix()[i][j].getX()*k)-4, (int)(MainClass.getMatrix()[i][j].getY()*k)-4, 10, 10);
             g.fillOval((int)(MainClass.getMatrix()[i][j].getX()*k)-4, (int)(MainClass.getMatrix()[i][j].getY()*k)-4, 10, 10);
+            g.drawOval((int)(MainClass.getMatrix()[i][j].getX()*k)-4, (int)(MainClass.getMatrix()[i][j].getY()*k)-4, 10, 10);
             g.setColor(Color.WHITE);
             g.fillOval((int)(MainClass.getMatrix()[i][j].getX()*k)+3-4, (int)(MainClass.getMatrix()[i][j].getY()*k)+3-4, 4, 4);
             
