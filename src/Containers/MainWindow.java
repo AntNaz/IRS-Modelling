@@ -25,9 +25,9 @@ import main.SVGWriter;
  * @author Anton
  */
 public class MainWindow extends JFrame {
-    private int width = 1000;
+    private int width = 900;
     
-    private int heigh = 500;
+    private int heigh = 480;
     
     private JPanel results = new JPanel();
     private static DrawPanel graphics = new DrawPanel();
@@ -41,7 +41,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setTitle("IRS-Modelling");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(1000, 400));        
+        setMinimumSize(new Dimension(900, 480));        
         LayoutManager layout = new BorderLayout();
         setLayout(layout);
         

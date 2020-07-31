@@ -46,7 +46,7 @@ public class PanelResults extends JPanel{
             }};
             tableResults.setModel(model);
             tableResults.setColumnSelectionAllowed(true);
-            tableResults.getColumnModel().getColumn(0).setMinWidth(80);
+            tableResults.getColumnModel().getColumn(0).setMinWidth(100);
             
             for (int j = 0; j<3; j++){
                 for (int i=0; i<20; i++) {
@@ -61,14 +61,17 @@ public class PanelResults extends JPanel{
         PanelResults(){           
             setUp();
             setBorder(BorderFactory.createLoweredBevelBorder());
-            Font font = new Font("Verdana", Font.PLAIN, 16);
+            Font font = new Font("Times New Roman", Font.BOLD, 18);
 //            setBackground(Color.GRAY);
             
             JLabel text = new JLabel();
+            text.setFont(font);
             text.setText("Modelling results");
             add(text);
+            tableResults.setFont(new Font( "SansSerif", Font.PLAIN, 14 ));
+            tableResults.setRowHeight(tableResults.getRowHeight()+2);
             String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
-            tableResults.setPreferredScrollableViewportSize(new Dimension(190, 320));
+            tableResults.setPreferredScrollableViewportSize(new Dimension(190, 360));
             //tableResults.setBackground(Color.LIGHT_GRAY);
             JScrollPane scrollpane = new JScrollPane(tableResults);
             scrollpane.setBackground(Color.LIGHT_GRAY);
@@ -88,60 +91,8 @@ public class PanelResults extends JPanel{
                     
             tableResults.setModel(model);
             tableResults.setColumnSelectionAllowed(true);
-            tableResults.getColumnModel().getColumn(0).setMinWidth(80);
+            tableResults.getColumnModel().getColumn(0).setMinWidth(100);
             tableResults.revalidate();
-//            tableResults.repaint();
-            //tableResults.getColumnModel().getColumn(2).setMaxWidth(10);
-//            tableResults.getColumnModel().getColumn(1).setMaxWidth(20);
-//            tableResults.getColumnModel().getColumn(2).setMaxWidth(20);
-//            JButton updateButton = new JButton("Update");
-//            add(updateButton, BorderLayout.SOUTH);
-//            updateButton.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                     for (int i =0; i<20; i++){
-//                        data [i][0] = MainClass.getTripplePoints()[i].getFullName();
-//                        data[i][1] = Integer.toString(MainClass.getTripplePoints()[i].getFe2Amount());
-//                        data[i][2] = Integer.toString(MainClass.getTripplePoints()[i].getFe3Amount());
-//                
-//                    }
-//                    DefaultTableModel model =  new DefaultTableModel(data, columnNames){
-//                        public boolean isCellEditable(int rowIndex, int columnIndex){
-//                            return false;
-//                        }
-//                    };
-//            
-//            for (int j = 0; j<3; j++){
-//                for (int i=0; i<20; i++) {
-//                   model.isCellEditable(i, j);
-//                }
-//            };
-//                     //tableResults.getColumnModel().getColumn(0).setMinWidth(1500);
-//                     //tableResults.getColumnModel().getColumn(0).setResizable(false);
-//                     //tableResults.getColumnModel().getColumn(1).setMaxWidth(20);
-//                     //tableResults.getColumnModel().getColumn(1).setResizable(false);
-//                     //tableResults.getColumnModel().getColumn(2).setMaxWidth(20);
-//                     //tableResults.getColumnModel().getColumn(2).setResizable(false);
-//                     tableResults.setModel(model);
-//                     tableResults.setColumnSelectionAllowed(true);
-//                     tableResults.getColumnModel().getColumn(0).setMinWidth(80);
-//                     tableResults.revalidate();
-//                    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//                }
-//            });
-            
-            
-//            String[] columnNames = {"name", "Fe2", "Fe3"};
-//            String[] names = new String[20];
-//            String[][] data = new String[20][3];
-//            for (int i =0; i<20; i++){
-//                data [i][0] = MainClass.getTripplePoints()[i].getFullName();
-//                data[i][1] = Integer.toString(MainClass.getTripplePoints()[i].getFe2Amount());
-//                data[i][2] = Integer.toString(MainClass.getTripplePoints()[i].getFe3Amount());
-//                
-//            }
-//            tableResults.repaint();
-            
     };
 
     
