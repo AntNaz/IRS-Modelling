@@ -28,7 +28,7 @@ public class DrawInfo extends JPanel{
         int x = this.getWidth();
         int y = 15;
         g2D.setColor(Color.WHITE);
-        g2D.fillOval(x/16, y, 5, 5);
+        g2D.fillOval(x/16, y, 10, 10);
         g2D.setColor(Color.BLACK);
         g2D.drawOval(x/16, y, 10, 10);
         g2D.drawString("Al\u00B3\u207A",x/16 + 20, y+11);
