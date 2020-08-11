@@ -36,23 +36,23 @@ public class DrawInfo extends JPanel{
         g2D.drawString("("+MainClass.getAlAmount()/10.0+"%)",x/16 + 45, y+11);
            
         g.setColor(Color.BLACK);
-        g.fillOval(x/4+10, y , 10, 10);
-        g.drawOval(x/4+10, y , 10, 10);
+        g.fillOval(x/4+20, y , 10, 10);
+        g.drawOval(x/4+20, y , 10, 10);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
-        g2D.drawString("Fe\u00B3\u207A", x/4+10 + 20, y+11);
+        g2D.drawString("Fe\u00B3\u207A", x/4+20 + 20, y+11);
         g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getFe3Amount()/10.0+"%)",x/4+10 + 50, y+11);
+        g2D.drawString("("+MainClass.getFe3Amount()/10.0+"%)",x/4+20+ 50, y+11);
         
         
-        g.fillOval(x/2,y, 10, 10);
-        g.drawOval(x/2,y, 10, 10);
+        g.fillOval(x/2+10,y, 10, 10);
+        g.drawOval(x/2+10,y, 10, 10);
         g.setColor(Color.WHITE);
-        g.fillOval(x/2 + 3,y + 3, 4, 4);
+        g.fillOval(x/2 +10 + 3,y + 3, 4, 4);
         g.setColor(Color.BLACK);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
-        g2D.drawString("Fe\u00B2\u207A", x/2 + 20, y+11);
+        g2D.drawString("Fe\u00B2\u207A", x/2 +10 + 20, y+11);
         g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getFe2Amount()/10.0+"%)",x/2 + 50, y+11);
+        g2D.drawString("("+MainClass.getFe2Amount()/10.0+"%)",x/2 + 10+50, y+11);
         
         g.setColor(Color.LIGHT_GRAY);
         g.fillOval(x/4*3, y, 10, 10);
