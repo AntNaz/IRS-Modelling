@@ -91,7 +91,7 @@ public class MainClass {
     MainClass () {
         MainWindow frame = new MainWindow();
 //      Установка иконки приложению
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getClassLoader().getResource("icon.png")));
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getClassLoader().getResource("icon7.png")));
 
 //        String[] columnNames = {"name", "Fe2", "Fe3"};
 //            String[] names = new String[20];

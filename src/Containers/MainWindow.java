@@ -7,16 +7,8 @@ import java.awt.Dimension;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import main.MainClass;
 import main.SVGWriter;
 
@@ -31,10 +23,19 @@ public class MainWindow extends JFrame {
     
     private JPanel results = new JPanel();
     private static DrawPanel graphics = new DrawPanel();
-    public static JPanel info = new DrawInfo();
-    public static JScrollPane scrollGraph = new JScrollPane(graphics);
-    public static PanelResults panelResults = new PanelResults();
+    private static JPanel info = new DrawInfo();
+    private static JScrollPane scrollGraph = new JScrollPane(graphics);
+    private static PanelResults panelResults = new PanelResults();
     
+    public static PanelResults getPanelResults(){
+        return panelResults;
+    }
+    public static JPanel getInfo(){
+        return info;
+    }
+    public static JScrollPane getScrollGraph(){
+        return scrollGraph;
+    }
     
     public MainWindow() {
         setSize(width, heigh);

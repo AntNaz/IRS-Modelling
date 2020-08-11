@@ -6,7 +6,7 @@
 package Containers;
 
 
-import static Containers.MainWindow.scrollGraph;
+//import static Containers.MainWindow.scrollGraph;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -67,8 +67,8 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
     private static int newX;
     private static int newY;
     public static void setZeroPosition(){
-       MainWindow.scrollGraph.getViewport().setViewPosition(new Point(0,0));
-       scrollGraph.revalidate();
+       MainWindow.getScrollGraph().getViewport().setViewPosition(new Point(0,0));
+       MainWindow.getScrollGraph().revalidate();
     }
     
     
@@ -87,14 +87,14 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
                 xPointDragged = (int) e.getX();
                 yPointDragged = (int) e.getY();
 //                
-                Point viewportPosition = MainWindow.scrollGraph.getViewport().getViewPosition();
+                Point viewportPosition = MainWindow.getScrollGraph().getViewport().getViewPosition();
                 newX = (int)(viewportPosition.getX() + xPoint - xPointDragged);
                 newY = (int)(viewportPosition.getY() + yPoint - yPointDragged);
                 if (newX<0) newX = 0;
                 if (newY<0) newY = 0;
                 newViewportPosition.setLocation(newX, newY); 
-                MainWindow.scrollGraph.getViewport().setViewPosition(newViewportPosition);
-                scrollGraph.revalidate();
+                MainWindow.getScrollGraph().getViewport().setViewPosition(newViewportPosition);
+                MainWindow.getScrollGraph().revalidate();
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
             
@@ -111,15 +111,15 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
             if (k<2) {
                 k=(k*1.1);
                 System.out.println(k);
-                Point viewportPosition = MainWindow.scrollGraph.getViewport().getViewPosition();
+                Point viewportPosition = MainWindow.getScrollGraph().getViewport().getViewPosition();
                 Point newViewportPosition = new Point(
                            (int)(viewportPosition.getX() + xPoint*1.1 - xPoint),
                            (int)(viewportPosition.getY() + yPoint*1.1 - yPoint)
                             
                  );
-                MainWindow.scrollGraph.getViewport().setViewPosition(newViewportPosition);
+                MainWindow.getScrollGraph().getViewport().setViewPosition(newViewportPosition);
                 
-                scrollGraph.revalidate();
+                MainWindow.getScrollGraph().revalidate();
                 xPoint = (int) (xPoint*1.1);
                 yPoint = (int) (yPoint*1.1);
            }
@@ -132,14 +132,14 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
             k=(k/1.1);
            
             System.out.println(k);
-                Point viewportPosition = MainWindow.scrollGraph.getViewport().getViewPosition();
+                Point viewportPosition = MainWindow.getScrollGraph().getViewport().getViewPosition();
                 Point newViewportPosition = new Point(
                         (int)(viewportPosition.getX() + xPoint/1.1 - xPoint),
                         (int)(viewportPosition.getY() + yPoint/1.1 - yPoint)
                 );
-                 MainWindow.scrollGraph.getViewport().setViewPosition(newViewportPosition);
+                 MainWindow.getScrollGraph().getViewport().setViewPosition(newViewportPosition);
                  
-                 scrollGraph.revalidate();
+                 MainWindow.getScrollGraph().revalidate();
                  xPoint = (int) (xPoint/1.1);
                 yPoint = (int) (yPoint/1.1);
              }

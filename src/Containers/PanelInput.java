@@ -112,7 +112,7 @@ public class PanelInput extends JPanel {
                         //summ = (summ);
                         if (summ ==1000 && positive) {
                             MainClass.buildElements();
-                            MainWindow.panelResults.setUp();
+                            MainWindow.getPanelResults().setUp();
 //                            MainClass.getFrame().
                             for (int n = 0; n<10; n++){
                                 textFields[n].setEditable(false);
@@ -128,8 +128,8 @@ public class PanelInput extends JPanel {
                         JOptionPane.showMessageDialog(null, "Введите числовые значения!", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     summ = 0;
-                    MainWindow.info.revalidate();
-                    MainWindow.info.repaint();
+                    MainWindow.getInfo().revalidate();
+                    MainWindow.getInfo().repaint();
                      //DrawPanel.setK();
                     
                 }
@@ -153,10 +153,10 @@ public class PanelInput extends JPanel {
                     for (int i = 0; i<20; i++) {
                         MainClass.getTripplePoints()[i].setAmountsZero();
                     }
-                    MainWindow.panelResults.setUp();
+                    MainWindow.getPanelResults().setUp();
                     MainClass.setZeroAmounts();
-                    MainWindow.info.revalidate();
-                    MainWindow.info.repaint();
+                    MainWindow.getInfo().revalidate();
+                    MainWindow.getInfo().repaint();
                     
                 }
             });
