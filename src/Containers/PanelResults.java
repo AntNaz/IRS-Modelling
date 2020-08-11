@@ -7,8 +7,13 @@ package Containers;
 
 import java.awt.Color;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -20,18 +25,15 @@ import main.MainClass;
  */
 
 public class PanelResults extends JPanel{
-//        JTable tableResults = new JTable();
-//            static JScrollPane scrollpane = new JScrollPane(tableResults);
-            
-//            scrollpane.setPreferredSize(new Dimension(500,200));
-//            scrollpane.setSize(new Dimension(500,1000));
-            //tableResults.setPreferredScrollableViewportSize(new Dimension(200, 200));
             
      String[][] data = new String[20][3];   
           
-    public JTable tableResults = new JTable();
-    
-    
+    private JTable tableResults = new JTable();
+    private JPopupMenu popup = new JPopupMenu();
+    private JMenuItem copyItem = new JMenuItem("Copy");
+    public JTable getTableResults(){
+        return tableResults;
+    }
         public void setUp(){
             for (int i =0; i<20; i++){
                         data [i][0] = MainClass.getTripplePoints()[i].getFullName();
@@ -41,6 +43,7 @@ public class PanelResults extends JPanel{
                     }
             String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames){
+                @Override
                 public boolean isCellEditable(int rowIndex, int columnIndex){
                 return false;
             }};
@@ -52,7 +55,7 @@ public class PanelResults extends JPanel{
                 for (int i=0; i<20; i++) {
                    model.isCellEditable(i, j);
                 }
-            };
+            }
             
             tableResults.setModel(model);
             tableResults.revalidate();
@@ -77,6 +80,7 @@ public class PanelResults extends JPanel{
             scrollpane.setBackground(Color.LIGHT_GRAY);
             add(scrollpane, BorderLayout.CENTER);
             DefaultTableModel model = new DefaultTableModel(data, columnNames){
+                @Override
                 public boolean isCellEditable(int rowIndex, int columnIndex){
                     return false;
                 }
@@ -87,7 +91,42 @@ public class PanelResults extends JPanel{
                    model.isCellEditable(i, j);
                 }
             }
-            
+            popup.add(copyItem);
+            copyItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+//                    int[] rows = tableResults.getSelectedRows();
+//                    int[] cols = tableResults.getSelectedColumns();
+                    String textToCopy = "Name \t Fe\u00B2\u207A \t Fe\u00B3\u207A \n";
+                    
+                    for (int i = 0; i<20; i++) {
+                        for (int j = 0; j<3; j++){
+                            textToCopy = textToCopy + tableResults.getValueAt(i, j).toString();
+                            if (j!=2) textToCopy = textToCopy + "\t";
+                        }
+                        textToCopy = textToCopy + "\n";
+                    }
+                    StringSelection stringSelection = new StringSelection(textToCopy);
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(stringSelection, null);
+                }
+            });
+            tableResults.add(popup);
+            tableResults.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent e) {
+                    showPopup(e);
+                }
+                public void mouseReleased(MouseEvent e) {
+                  showPopup(e);
+                }
+                private void showPopup(MouseEvent e) {
+                    
+                  if (e.isPopupTrigger()) {
+                    popup.show(e.getComponent(), e.getX(), e.getY());
+                  }
+                }
+});
+                    
                     
             tableResults.setModel(model);
             tableResults.setColumnSelectionAllowed(true);

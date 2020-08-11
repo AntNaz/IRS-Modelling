@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -143,17 +145,26 @@ public class MainWindow extends JFrame {
             //menuBar.setPreferredSize(new Dimension(width, 30));
             JMenu menuFile = new JMenu("File");
             JMenu view = new JMenu("View");
-            JMenu help = new JMenu("About");
+            JMenuItem help = new JMenuItem("Help");
             menuBar.add(menuFile);
-            menuBar.add(view);
+            //menuBar.add(view);
             menuBar.add(help);
 
 
             JMenuItem fileItem = new JMenuItem("Save image");
+            JMenuItem copyItem = new JMenuItem("Copy table");
             JMenuItem fileExit = new JMenuItem("Exit");
             menuFile.add(fileItem);
+            menuFile.add(copyItem);
             menuFile.addSeparator();
             menuFile.add(fileExit);
+            
+            help.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "Press \"Ctrl+C\" to copy data from table.\nPress \"Ctrl+V\" to paste data to Excel.");
+                }
+            });
             
             fileExit.addActionListener(new ActionListener(){
                 @Override
@@ -177,6 +188,24 @@ public class MainWindow extends JFrame {
                     }
                 }
             });
+            copyItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String textToCopy = "Name \t Fe\u00B2\u207A \t Fe\u00B3\u207A \n";
+                    
+                    for (int i = 0; i<20; i++) {
+                        for (int j = 0; j<3; j++){
+                            textToCopy = textToCopy + panelResults.getTableResults().getValueAt(i, j).toString(); 
+                            if (j!=2) textToCopy = textToCopy + "\t";
+                        }
+                        textToCopy = textToCopy + "\n";
+                    }
+                    StringSelection stringSelection = new StringSelection(textToCopy);
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(stringSelection, null);
+                }
+            });
+            
         }
 }
 
