@@ -51,6 +51,7 @@ public class PanelResults extends JPanel{
             tableResults.setModel(model);
             tableResults.setColumnSelectionAllowed(true);
             tableResults.getColumnModel().getColumn(0).setMinWidth(100);
+            tableResults.getTableHeader().setReorderingAllowed(false);
             
             for (int j = 0; j<3; j++){
                 for (int i=0; i<20; i++) {
