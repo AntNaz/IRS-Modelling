@@ -191,7 +191,7 @@ public class MainWindow extends JFrame {
             copyItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String textToCopy = "Name \t Fe\u00B2\u207A \t Fe\u00B3\u207A \n";
+                    String textToCopy = panelResults.getTableResults().getColumnName(0) + "\t" + panelResults.getTableResults().getColumnName(1) + "\t" + panelResults.getTableResults().getColumnName(2) + "\n";
                     
                     for (int i = 0; i<20; i++) {
                         for (int j = 0; j<3; j++){

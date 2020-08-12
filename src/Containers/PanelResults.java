@@ -31,6 +31,7 @@ public class PanelResults extends JPanel{
     private JTable tableResults = new JTable();
     private JPopupMenu popup = new JPopupMenu();
     private JMenuItem copyItem = new JMenuItem("Copy");
+    
     public JTable getTableResults(){
         return tableResults;
     }
@@ -92,12 +93,13 @@ public class PanelResults extends JPanel{
                 }
             }
             popup.add(copyItem);
+            
             copyItem.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 //                    int[] rows = tableResults.getSelectedRows();
 //                    int[] cols = tableResults.getSelectedColumns();
-                    String textToCopy = "Name \t Fe\u00B2\u207A \t Fe\u00B3\u207A \n";
+                    String textToCopy = tableResults.getColumnName(0) + "\t" + tableResults.getColumnName(1) + "\t" + tableResults.getColumnName(2) + "\n";
                     
                     for (int i = 0; i<20; i++) {
                         for (int j = 0; j<3; j++){
