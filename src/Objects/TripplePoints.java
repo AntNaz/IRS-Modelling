@@ -14,8 +14,8 @@ public class TripplePoints {
     private Element point2;
     private Element point3;
     
-    private int fe2Amount;
-    private int fe3Amount;
+    private double fe2Amount;
+    private double fe3Amount;
     private String name;
     public TripplePoints(){
     }
@@ -25,10 +25,10 @@ public class TripplePoints {
         point3 = new Element(name3);
         this.name = name1+name2+name3;
     }
-    public int getFe2Amount(){
+    public double getFe2Amount(){
         return fe2Amount;
     }
-    public int getFe3Amount(){
+    public double getFe3Amount(){
         return fe3Amount;
     }
     public Element getPoint1(){
@@ -52,5 +52,9 @@ public class TripplePoints {
     }
     public String getFullName(){
         return name;
+    }
+    public void setFeAmount(double fe2, double fe3){
+        fe2Amount = fe2;
+        fe3Amount = fe3;
     }
 }

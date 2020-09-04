@@ -195,7 +195,7 @@ public class MainWindow extends JFrame {
                     
                     for (int i = 0; i<20; i++) {
                         for (int j = 0; j<3; j++){
-                            textToCopy = textToCopy + panelResults.getTableResults().getValueAt(i, j).toString(); 
+                            textToCopy = textToCopy + panelResults.getTableResults().getValueAt(i, j).toString().replace(".", ","); 
                             if (j!=2) textToCopy = textToCopy + "\t";
                         }
                         textToCopy = textToCopy + "\n";

@@ -243,6 +243,15 @@ public class MainClass {
                 }
             }
         }
+        double sumPer = 0;
+        for (int i =0; i< tripplePoints.length; i++) {
+            sumPer = sumPer + tripplePoints[i].getFe2Amount() + tripplePoints[i].getFe3Amount();
+        }
+        for (int i =0; i< tripplePoints.length; i++) {
+            tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer*100), (tripplePoints[i].getFe3Amount()/sumPer*100));
+        }
+        
+        
         int sum = 0;
         for (int i =0; i<x; i++) {
             for(int j = 0; j<2*y; j++) {

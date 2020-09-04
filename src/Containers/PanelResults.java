@@ -38,8 +38,8 @@ public class PanelResults extends JPanel{
         public void setUp(){
             for (int i =0; i<20; i++){
                         data [i][0] = MainClass.getTripplePoints()[i].getFullName();
-                        data[i][1] = Integer.toString(MainClass.getTripplePoints()[i].getFe2Amount());
-                        data[i][2] = Integer.toString(MainClass.getTripplePoints()[i].getFe3Amount());
+                        data[i][1] = Double.toString(MainClass.getTripplePoints()[i].getFe2Amount());
+                        data[i][2] = Double.toString(MainClass.getTripplePoints()[i].getFe3Amount());
                 
                     }
             String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
@@ -104,7 +104,7 @@ public class PanelResults extends JPanel{
                     
                     for (int i = 0; i<20; i++) {
                         for (int j = 0; j<3; j++){
-                            textToCopy = textToCopy + tableResults.getValueAt(i, j).toString();
+                            textToCopy = textToCopy + tableResults.getValueAt(i, j).toString().replace(".", ",");
                             if (j!=2) textToCopy = textToCopy + "\t";
                         }
                         textToCopy = textToCopy + "\n";
