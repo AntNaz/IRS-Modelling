@@ -14,8 +14,8 @@ public class TripplePoints {
     private Element point2;
     private Element point3;
     
-    private double fe2Amount;
-    private double fe3Amount;
+    private double fe2Amount=0;
+    private double fe3Amount=0;
     private String name;
     public TripplePoints(){
     }
