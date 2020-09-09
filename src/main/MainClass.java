@@ -248,7 +248,7 @@ public class MainClass {
             sumPer = sumPer + tripplePoints[i].getFe2Amount() + tripplePoints[i].getFe3Amount();
         }
         for (int i =0; i< tripplePoints.length; i++) {
-            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer*100), (tripplePoints[i].getFe3Amount()/sumPer*100));            
+            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer), (tripplePoints[i].getFe3Amount()/sumPer));            
         }
         
         
