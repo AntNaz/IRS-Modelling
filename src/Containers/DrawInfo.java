@@ -28,12 +28,12 @@ public class DrawInfo extends JPanel{
         int x = this.getWidth();
         int y = 15;
         g2D.setColor(Color.WHITE);
-        g2D.fillOval(x/16, y, 10, 10);
+        g2D.fillOval(40, y, 10, 10);
         g2D.setColor(Color.BLACK);
-        g2D.drawOval(x/16, y, 10, 10);
-        g2D.drawString("Al\u00B3\u207A",x/16 + 20, y+11);
+        g2D.drawOval(40, y, 10, 10);
+        g2D.drawString("Al\u00B3\u207A",60, y+11);
         g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getAlAmount()/1000.0+")",x/16 + 45, y+11);
+        g2D.drawString("("+MainClass.getAlAmount()/1000.0+")",85, y+11);
            
         g.setColor(Color.BLACK);
         g.fillOval(x/4+20, y , 10, 10);
@@ -44,28 +44,30 @@ public class DrawInfo extends JPanel{
         g2D.drawString("("+MainClass.getFe3Amount()/1000.0+")",x/4+20+ 50, y+11);
         
         
-        g.fillOval(x/2+10,y, 10, 10);
-        g.drawOval(x/2+10,y, 10, 10);
+        g.fillOval(x/2+x/9-40,y, 10, 10);
+        g.drawOval(x/2+x/9-40,y, 10, 10);
         g.setColor(Color.WHITE);
-        g.fillOval(x/2 +10 + 3,y + 3, 4, 4);
+        g.fillOval(x/2 +x/9-37,y + 3, 4, 4);
         g.setColor(Color.BLACK);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
-        g2D.drawString("Fe\u00B2\u207A", x/2 +10 + 20, y+11);
+        g2D.drawString("Fe\u00B2\u207A", x/2 +x/9-20, y+11);
         g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getFe2Amount()/1000.0+")",x/2 + 10+50, y+11);
+        g2D.drawString("("+MainClass.getFe2Amount()/1000.0+")",x/2+x/9+10, y+11);
         
         g.setColor(Color.LIGHT_GRAY);
-        g.fillOval(x/4*3, y, 10, 10);
+        g.fillOval(x-130, y, 10, 10);
         g.setColor(Color.BLACK);
-        g.drawOval(x/4*3, y, 10, 10);
+        g.drawOval(x-130, y, 10, 10);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
-        g2D.drawString("Mg\u00B2\u207A", x/4*3 + 20, y+11);
+        g2D.drawString("Mg\u00B2\u207A", x-130+20, y+11);
         g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 16 ));
-        g2D.drawString("("+MainClass.getMgAmount()/1000.0+")",x/4*3 + 55, y+11);
+        g2D.drawString("("+MainClass.getMgAmount()/1000.0+")",x-130+55, y+11);
         g2D.setFont(new Font( "SansSerif", Font.BOLD, 16 ));
         int xp = this.getWidth()/16;
-        int yp = 40;
-        float k = 1.5f;
+        int yp = 50;
+        g2D.setColor(Color.LIGHT_GRAY);
+        g2D.drawLine(20, yp-13, this.getWidth()-20, yp-13);
+        float k = 2f;
         int[] xPoints = {xp,(int)((54-18)/k)+xp, (int) (54/k)+xp, (int)((54-18)/k)+xp, xp, xp-(int)(18/k)};
         int[] yPoints = {yp,yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp, 2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp,2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp};
         Polygon p = new Polygon(xPoints,yPoints,6);
@@ -73,9 +75,10 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p);
-        g2D.drawString("1", xp+60, yp+24);
+        g2D.setFont(new Font( "Times New Roman", Font.PLAIN, 12 ));
+        g2D.drawString("Преобладает Al", xp+40, yp+20);
         
-        xp = (int) (this.getWidth()/32*14);
+        xp = (int) (this.getWidth()/2-70);
         int[] xPoints2 = {xp,(int)((54-18)/k)+xp, (int) (54/k)+xp, (int)((54-18)/k)+xp, xp, xp-(int)(18/k)};
         int[] yPoints2 = {yp,yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp, 2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp,2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp};
         Polygon p2 = new Polygon(xPoints2,yPoints2,6);
@@ -85,9 +88,10 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p2);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p2);
-        g2D.drawString("2", xp+60, yp+24);
+        g2D.drawString("Нет преобладающих", xp+40, yp+15);
+        g2D.drawString("Al или Fe", xp+40, yp+27);
         
-        xp = this.getWidth()/16*13;
+        xp = this.getWidth()-160;
         
         int[] xPoints3 = {xp,(int)((54-18)/k)+xp, (int) (54/k)+xp, (int)((54-18)/k)+xp, xp, xp-(int)(18/k)};
         int[] yPoints3 = {yp,yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp, 2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp,2*(int) (36*Math.sin(Math.toRadians(60))/k)+yp, (int) (36*Math.sin(Math.toRadians(60))/k)+yp};
@@ -96,7 +100,7 @@ public class DrawInfo extends JPanel{
         g2D.fillPolygon(p3);
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p3);
-        g2D.drawString("3", xp+60, yp+24);
+        g2D.drawString("Преобладает Fe", xp+40, yp+20);
         
     }
 }
