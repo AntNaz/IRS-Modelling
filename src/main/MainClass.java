@@ -137,7 +137,10 @@ public class MainClass {
     }
     
     
-    
+    private static int iter;
+    public static void setIter(int iterIn){
+        iter = iterIn;
+    }
     
     public static void buildElements(){   
         for (int n = 0; n<points.length;n++){
@@ -148,98 +151,102 @@ public class MainClass {
             tripplePoints[i].setAmountsZero();
             
         }
-        int randomAmount;
-        for (int i = 0; i<x; i++){
-            for (int j =0; j<2*y-1; j = j+2) {
-                int num = 0;
-                randomAmount = 0;
-                for (int k = 0; k < points.length; k++) {
-                    randomAmount = randomAmount + points[k].getAmount();
-                }
-                int rand = (int) (Math.random() * randomAmount + 1); 
-                
-                for (int n = 0; n<points.length;n++) {
-                    if (rand > num && rand <= num + points[n].getAmount()) {
-                        Random change = new Random();
-                        if (change.nextBoolean()) {
-                            matrix[i][j] = new Element(points[n].getPoint2().getName(),i,j);
-                            matrix[i][j+1] = new Element(points[n].getPoint1().getName(),i,j+1);
-                        } else {
-                            matrix[i][j] = new Element(points[n].getPoint1().getName(),i,j);
-                            matrix[i][j+1] = new Element(points[n].getPoint2().getName(),i,j+1);
-                        }                        
-                        points[n].reduceAmount();                             
-                        break;
-                    } 
-                    num = num + points[n].getAmount();
+        
+        for(int q = 0;q<iter;q++){
+        
+            int randomAmount;
+            for (int i = 0; i<x; i++){
+                for (int j =0; j<2*y-1; j = j+2) {
+                    int num = 0;
+                    randomAmount = 0;
+                    for (int k = 0; k < points.length; k++) {
+                        randomAmount = randomAmount + points[k].getAmount();
+                    }
+                    int rand = (int) (Math.random() * randomAmount + 1); 
+
+                    for (int n = 0; n<points.length;n++) {
+                        if (rand > num && rand <= num + points[n].getAmount()) {
+                            Random change = new Random();
+                            if (change.nextBoolean()) {
+                                matrix[i][j] = new Element(points[n].getPoint2().getName(),i,j);
+                                matrix[i][j+1] = new Element(points[n].getPoint1().getName(),i,j+1);
+                            } else {
+                                matrix[i][j] = new Element(points[n].getPoint1().getName(),i,j);
+                                matrix[i][j+1] = new Element(points[n].getPoint2().getName(),i,j+1);
+                            }                        
+                            points[n].reduceAmount();                             
+                            break;
+                        } 
+                        num = num + points[n].getAmount();
+                    }
                 }
             }
-        }
-        
-        int amountAround=0;
-        for (int i = 1; i<x-1; i++) {
-            for (int j = 0; j<2*y;j++){
-                amountAround=0;
-                if (i%2==1&&j%2==0) amountAround = matrix[i-1][j+1].getId()+matrix[i][j+1].getId() + matrix[i+1][j+1].getId();
-                if (i%2==1&&j%2==1&&j<(2*y-1)) amountAround = matrix[i][j-1].getId()+ matrix[i-1][j+1].getId() + matrix[i+1][j+1].getId();
-                if (i%2==0&&j%2==1) amountAround = matrix[i][j-1].getId() + matrix[i-1][j-1].getId() + matrix[i+1][j-1].getId();
-                if (i%2==0&&j%2==0&&j>0) amountAround = matrix[i-1][j-1].getId() + matrix[i+1][j-1].getId() + matrix[i][j+1].getId();
-                
-                if (matrix[i][j].getName().equals("Fe\u00B2\u207A")){
-                    switch (amountAround) {
-                        case (3000): fe3Fe3Fe3.increaseFe2Amount(); break;
-                        case (2010): mgFe3Fe3.increaseFe2Amount(); break;
-                        case (1020): mgMgFe3.increaseFe2Amount(); break;
-                        case (30): mgMgMg.increaseFe2Amount(); break;
-                        case (2100): fe2Fe3Fe3.increaseFe2Amount(); break;
-                        
-                        case(1110): fe2MgFe3.increaseFe2Amount(); break;
-                        case(120): fe2MgMg.increaseFe2Amount(); break;
-                        case(1200): fe2Fe2Fe3.increaseFe2Amount(); break;
-                        case(210): fe2Fe2Mg.increaseFe2Amount(); break;
-                        case(300): fe2Fe2Fe2.increaseFe2Amount(); break;
-                        
-                        case(2001): alFe3Fe3.increaseFe2Amount(); break;
-                        case(1011): alMgFe3.increaseFe2Amount(); break;
-                        case(21): alMgMg.increaseFe2Amount(); break;
-                        case(1101): alFe2Fe3.increaseFe2Amount(); break;
-                        case(111): alFe2Mg.increaseFe2Amount(); break;
-                        
-                        case (201): alFe2Fe2.increaseFe2Amount(); break;
-                        case(1002): alAlFe3.increaseFe2Amount(); break;
-                        case(12): alAlMg.increaseFe2Amount(); break;
-                        case(102): alAlFe2.increaseFe2Amount(); break;
-                        case (3): alAlAl.increaseFe2Amount(); break;
+
+            int amountAround=0;
+            for (int i = 1; i<x-1; i++) {
+                for (int j = 0; j<2*y;j++){
+                    amountAround=0;
+                    if (i%2==1&&j%2==0) amountAround = matrix[i-1][j+1].getId()+matrix[i][j+1].getId() + matrix[i+1][j+1].getId();
+                    if (i%2==1&&j%2==1&&j<(2*y-1)) amountAround = matrix[i][j-1].getId()+ matrix[i-1][j+1].getId() + matrix[i+1][j+1].getId();
+                    if (i%2==0&&j%2==1) amountAround = matrix[i][j-1].getId() + matrix[i-1][j-1].getId() + matrix[i+1][j-1].getId();
+                    if (i%2==0&&j%2==0&&j>0) amountAround = matrix[i-1][j-1].getId() + matrix[i+1][j-1].getId() + matrix[i][j+1].getId();
+
+                    if (matrix[i][j].getName().equals("Fe\u00B2\u207A")){
+                        switch (amountAround) {
+                            case (3000): fe3Fe3Fe3.increaseFe2Amount(); break;
+                            case (2010): mgFe3Fe3.increaseFe2Amount(); break;
+                            case (1020): mgMgFe3.increaseFe2Amount(); break;
+                            case (30): mgMgMg.increaseFe2Amount(); break;
+                            case (2100): fe2Fe3Fe3.increaseFe2Amount(); break;
+
+                            case(1110): fe2MgFe3.increaseFe2Amount(); break;
+                            case(120): fe2MgMg.increaseFe2Amount(); break;
+                            case(1200): fe2Fe2Fe3.increaseFe2Amount(); break;
+                            case(210): fe2Fe2Mg.increaseFe2Amount(); break;
+                            case(300): fe2Fe2Fe2.increaseFe2Amount(); break;
+
+                            case(2001): alFe3Fe3.increaseFe2Amount(); break;
+                            case(1011): alMgFe3.increaseFe2Amount(); break;
+                            case(21): alMgMg.increaseFe2Amount(); break;
+                            case(1101): alFe2Fe3.increaseFe2Amount(); break;
+                            case(111): alFe2Mg.increaseFe2Amount(); break;
+
+                            case (201): alFe2Fe2.increaseFe2Amount(); break;
+                            case(1002): alAlFe3.increaseFe2Amount(); break;
+                            case(12): alAlMg.increaseFe2Amount(); break;
+                            case(102): alAlFe2.increaseFe2Amount(); break;
+                            case (3): alAlAl.increaseFe2Amount(); break;
+                        }
                     }
-                }
-                
-                if (matrix[i][j].getName().equals("Fe\u00B3\u207A")){
-                    switch (amountAround) {
-                        case (3000): fe3Fe3Fe3.increaseFe3Amount(); break;
-                        case (2010): mgFe3Fe3.increaseFe3Amount(); break;
-                        case (1020): mgMgFe3.increaseFe3Amount(); break;
-                        case (30): mgMgMg.increaseFe3Amount(); break;
-                        case (2100): fe2Fe3Fe3.increaseFe3Amount(); break;
-                        
-                        case(1110): fe2MgFe3.increaseFe3Amount(); break;
-                        case(120): fe2MgMg.increaseFe3Amount(); break;
-                        case(1200): fe2Fe2Fe3.increaseFe3Amount(); break;
-                        case(210): fe2Fe2Mg.increaseFe3Amount(); break;
-                        case(300): fe2Fe2Fe2.increaseFe3Amount(); break;
-                        
-                        case(2001): alFe3Fe3.increaseFe3Amount(); break;
-                        case(1011): alMgFe3.increaseFe3Amount(); break;
-                        case(21): alMgMg.increaseFe3Amount(); break;
-                        case(1101): alFe2Fe3.increaseFe3Amount(); break;
-                        case(111): alFe2Mg.increaseFe3Amount(); break;
-                        
-                        case (201): alFe2Fe2.increaseFe3Amount(); break;
-                        case(1002): alAlFe3.increaseFe3Amount(); break;
-                        case(12): alAlMg.increaseFe3Amount(); break;
-                        case(102): alAlFe2.increaseFe3Amount(); break;
-                        case (3): alAlAl.increaseFe3Amount(); break;
+
+                    if (matrix[i][j].getName().equals("Fe\u00B3\u207A")){
+                        switch (amountAround) {
+                            case (3000): fe3Fe3Fe3.increaseFe3Amount(); break;
+                            case (2010): mgFe3Fe3.increaseFe3Amount(); break;
+                            case (1020): mgMgFe3.increaseFe3Amount(); break;
+                            case (30): mgMgMg.increaseFe3Amount(); break;
+                            case (2100): fe2Fe3Fe3.increaseFe3Amount(); break;
+
+                            case(1110): fe2MgFe3.increaseFe3Amount(); break;
+                            case(120): fe2MgMg.increaseFe3Amount(); break;
+                            case(1200): fe2Fe2Fe3.increaseFe3Amount(); break;
+                            case(210): fe2Fe2Mg.increaseFe3Amount(); break;
+                            case(300): fe2Fe2Fe2.increaseFe3Amount(); break;
+
+                            case(2001): alFe3Fe3.increaseFe3Amount(); break;
+                            case(1011): alMgFe3.increaseFe3Amount(); break;
+                            case(21): alMgMg.increaseFe3Amount(); break;
+                            case(1101): alFe2Fe3.increaseFe3Amount(); break;
+                            case(111): alFe2Mg.increaseFe3Amount(); break;
+
+                            case (201): alFe2Fe2.increaseFe3Amount(); break;
+                            case(1002): alAlFe3.increaseFe3Amount(); break;
+                            case(12): alAlMg.increaseFe3Amount(); break;
+                            case(102): alAlFe2.increaseFe3Amount(); break;
+                            case (3): alAlAl.increaseFe3Amount(); break;
+                        }
+
                     }
-                    
                 }
             }
         }
@@ -247,8 +254,9 @@ public class MainClass {
         for (int i =0; i< tripplePoints.length; i++) {
             sumPer = sumPer + tripplePoints[i].getFe2Amount() + tripplePoints[i].getFe3Amount();
         }
+        sumPer = sumPer/iter;
         for (int i =0; i< tripplePoints.length; i++) {
-            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer), (tripplePoints[i].getFe3Amount()/sumPer));            
+            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer/iter), (tripplePoints[i].getFe3Amount()/sumPer/iter));            
         }
         
         
@@ -282,6 +290,7 @@ public class MainClass {
         }
         System.out.println(sum);
         System.out.println(alAmount);
+        System.out.println(iter);
 
 //       PanelResults.tableResults.revalidate();
          

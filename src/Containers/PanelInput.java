@@ -42,7 +42,7 @@ public class PanelInput extends JPanel {
             label1.setFont(new Font("Times_New_Roman", Font.BOLD, 20));
             this.add(label1);
             JPanel doublePanel = new JPanel();
-            doublePanel.setLayout(new GridLayout(11, 2, 5, 5));
+            doublePanel.setLayout(new GridLayout(12, 2, 5, 5));
             doublePanel.setPreferredSize(new Dimension(200,350));
             doublePanel.setBackground(Color.LIGHT_GRAY);
             doublePanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
@@ -78,18 +78,37 @@ public class PanelInput extends JPanel {
                 doublePanel.add(labels[n]);
                 doublePanel.add(textFields[n]);
             }
+            JLabel labelIter = new JLabel("Iterations");
+            labelIter.setFont(new Font("Times_New_Roman", Font.BOLD, 14));
+            doublePanel.add(labelIter);
+            JTextField textIter = new JTextField();
+            textIter.setText("1");
+            textIter.setHorizontalAlignment(JTextField.RIGHT);
+            textIter.addFocusListener(new FocusListener() {
+                            @Override
+                            public void focusGained(FocusEvent e) {
+                                ((JTextField)e.getSource()).selectAll();
+                            }
 
+                            @Override
+                            public void focusLost(FocusEvent e) {
+                                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            }
+                        });
+            doublePanel.add(textIter);
             doublePanel.add(startButton);
             doublePanel.add(buttonReset);
             
             
             startButton.addActionListener(new ActionListener() {
                 int summ = 0;
+                
                 //BigDecimal sumBuf;
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean positive = true;
                     MainClass.setZeroAmounts();
+                    MainClass.setIter(1);
                     
                     System.out.println("\nButton was pressed!");
                     try {
@@ -109,18 +128,21 @@ public class PanelInput extends JPanel {
                             //System.out.println(MainClass.getPoints()[n].getAmount());
                             //DevApp.getPoints()[n].setAmount(80);
                         }
+                        int iter = Integer.parseInt(textIter.getText());
+                        MainClass.setIter(iter);
                         //summ = (summ);
-                        if (summ ==1000 && positive) {
+                        if (summ ==1000 && positive && iter >0 && iter <=1000) {
                             MainClass.buildElements();
                             MainWindow.getPanelResults().setUp();
 //                            MainClass.getFrame().
                             for (int n = 0; n<10; n++){
                                 textFields[n].setEditable(false);
                             }
+                            textIter.setEditable(false);
                         }
                         else 
                         {
-                            if (positive) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений!", "Error", JOptionPane.ERROR_MESSAGE);
+                            if (positive || iter <=0 || iter>1000) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений!", "Error", JOptionPane.ERROR_MESSAGE);
                             else JOptionPane.showMessageDialog(null, "Числа не могут быть отрицательными!", "Error", JOptionPane.ERROR_MESSAGE);
                         }
                         
@@ -141,12 +163,15 @@ public class PanelInput extends JPanel {
                     for (int i = 0; i < MainClass.getX(); i++) {
                         for (int j = 0; j<MainClass.getY()*2; j++) { 
                             MainClass.getMatrix()[i][j] = null;
+                            MainClass.setIter(1);
+                            textIter.setText("1");
                         }
                     }
                     for (int n = 0; n<10; n++){
                         textFields[n].setText("0");
                         textFields[n].setEditable(true);
                      }
+                    textIter.setEditable(true);
                     DrawPanel.setK();
                     DrawPanel.setZeroPosition();
                     
