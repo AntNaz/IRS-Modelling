@@ -131,7 +131,7 @@ public class PanelInput extends JPanel {
                         int iter = Integer.parseInt(textIter.getText());
                         MainClass.setIter(iter);
                         //summ = (summ);
-                        if (summ ==1000 && positive && iter >0 && iter <=1000) {
+                        if (summ ==1000 && positive && iter >0 && iter <=10000) {
                             MainClass.buildElements();
                             MainWindow.getPanelResults().setUp();
 //                            MainClass.getFrame().
@@ -142,12 +142,12 @@ public class PanelInput extends JPanel {
                         }
                         else 
                         {
-                            if (positive || iter <=0 || iter>1000) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений!", "Error", JOptionPane.ERROR_MESSAGE);
+                            if (positive || iter <=0 || iter>10000) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений!", "Error", JOptionPane.ERROR_MESSAGE);
                             else JOptionPane.showMessageDialog(null, "Числа не могут быть отрицательными!", "Error", JOptionPane.ERROR_MESSAGE);
                         }
                         
                     } catch(Exception ex) {
-                        JOptionPane.showMessageDialog(null, "Введите числовые значения!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Неверный формат данных!", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     summ = 0;
                     MainWindow.getInfo().revalidate();
