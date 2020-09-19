@@ -76,7 +76,7 @@ public class PanelResults extends JPanel{
             tableResults.setFont(new Font( "SansSerif", Font.PLAIN, 14 ));
             tableResults.setRowHeight(tableResults.getRowHeight()+2);
             String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
-            tableResults.setPreferredScrollableViewportSize(new Dimension(190, 360));
+            tableResults.setPreferredScrollableViewportSize(new Dimension(210, 360));
             //tableResults.setBackground(Color.LIGHT_GRAY);
             JScrollPane scrollpane = new JScrollPane(tableResults);
             scrollpane.setBackground(Color.LIGHT_GRAY);

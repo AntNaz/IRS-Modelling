@@ -100,7 +100,7 @@ public class MainWindow extends JFrame {
         panelResults.setBackground(Color.LIGHT_GRAY);
         add(scrollRes, BorderLayout.EAST);
 //        panelResults.add(scrollpane);
-        panelResults.setPreferredSize(new Dimension(200, 400));
+        panelResults.setPreferredSize(new Dimension(220, 400));
         //panelResults.setBorder(BorderFactory.createLoweredBevelBorder());
         
 //        for (int i =0; i<20; i++){
