@@ -108,7 +108,7 @@ public class PanelInput extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     boolean positive = true;
                     MainClass.setZeroAmounts();
-                    MainClass.setIter(1);
+                    //MainClass.setIter(1);
                     
                     System.out.println("\nButton was pressed!");
                     try {
