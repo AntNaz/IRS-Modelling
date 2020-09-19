@@ -101,7 +101,7 @@ public class MainWindow extends JFrame {
         add(scrollRes, BorderLayout.EAST);
 //        panelResults.add(scrollpane);
         panelResults.setPreferredSize(new Dimension(200, 400));
-        panelResults.setBorder(BorderFactory.createLoweredBevelBorder());
+        //panelResults.setBorder(BorderFactory.createLoweredBevelBorder());
         
 //        for (int i =0; i<20; i++){
 //                data [i][0] = MainClass.getTripplePoints()[i].getFullName();

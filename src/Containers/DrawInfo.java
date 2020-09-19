@@ -89,7 +89,7 @@ public class DrawInfo extends JPanel{
         g2D.setColor(Color.BLACK);
         g2D.drawPolygon(p2);
         g2D.drawString("Нет преобладающих", xp+40, yp+15);
-        g2D.drawString("Al или Fe", xp+40, yp+27);
+        g2D.drawString("элементов", xp+40, yp+27);
         
         xp = this.getWidth()-160;
         
