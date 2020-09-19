@@ -140,7 +140,7 @@ public class PanelInput extends JPanel {
                             for (int n = 0; n<10; n++){
                                 textFields[n].setEditable(false);
                             }
-                            textIter.setEditable(false);
+                            //textIter.setEditable(false);
                         }
                         else 
                         {

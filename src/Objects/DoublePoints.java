@@ -15,6 +15,7 @@ public class DoublePoints {
     private Element point1;
     private Element point2;
     private int amount;
+    private int amountRepeat;
     private String name;
 
     
@@ -35,12 +36,16 @@ public class DoublePoints {
     }
     public void setAmount(int amount){
         this.amount = amount;
+        amountRepeat=amount;
     }
     public void reduceAmount(){
-        this.amount = amount - 1;
+        this.amountRepeat = amountRepeat - 1;
+    }
+    public void setAmountRepeat(){
+        amountRepeat=amount;
     }
     public int getAmount () {
-        return amount;
+        return amountRepeat;
     }
     
      public String getName(){

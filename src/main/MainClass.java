@@ -153,7 +153,9 @@ public class MainClass {
         }
         
         for(int q = 0;q<iter;q++){
-        
+            for (int n =0; n<10;n++){
+                points[n].setAmountRepeat();
+            }
             int randomAmount;
             for (int i = 0; i<x; i++){
                 for (int j =0; j<2*y-1; j = j+2) {
@@ -254,9 +256,9 @@ public class MainClass {
         for (int i =0; i< tripplePoints.length; i++) {
             sumPer = sumPer + tripplePoints[i].getFe2Amount() + tripplePoints[i].getFe3Amount();
         }
-        sumPer = sumPer/iter;
+        
         for (int i =0; i< tripplePoints.length; i++) {
-            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer/iter), (tripplePoints[i].getFe3Amount()/sumPer/iter));            
+            if (sumPer!=0) tripplePoints[i].setFeAmount((tripplePoints[i].getFe2Amount()/sumPer), (tripplePoints[i].getFe3Amount()/sumPer));            
         }
         
         
@@ -291,6 +293,7 @@ public class MainClass {
         System.out.println(sum);
         System.out.println(alAmount);
         System.out.println(iter);
+        System.out.println(sumPer);
 
 //       PanelResults.tableResults.revalidate();
          
