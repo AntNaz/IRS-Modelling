@@ -9,6 +9,8 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import javax.swing.*;
 import main.MainClass;
@@ -19,7 +21,7 @@ import main.SVGWriter;
  * @author Anton
  */
 public class MainWindow extends JFrame {
-    private int width = 950;
+    private int width = 1000;
     
     private int heigh = 480;
     
@@ -44,7 +46,7 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setTitle("IRS-Modelling");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(950, 480));        
+        setMinimumSize(new Dimension(1000, 480));        
         LayoutManager layout = new BorderLayout();
         setLayout(layout);
         
@@ -144,16 +146,21 @@ public class MainWindow extends JFrame {
             setJMenuBar(menuBar);
             //menuBar.setPreferredSize(new Dimension(width, 30));
             JMenu menuFile = new JMenu("File");
+            menuFile.setMnemonic(KeyEvent.VK_F);
+            //menuFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_DOWN_MASK));
             JMenu view = new JMenu("View");
-            JMenuItem help = new JMenuItem("Help");
+            JMenuItem help = new JMenuItem("Help",KeyEvent.VK_H);
             menuBar.add(menuFile);
             //menuBar.add(view);
-            menuBar.add(help);
+            //menuBar.add(help);
 
 
-            JMenuItem fileItem = new JMenuItem("Save image");
-            JMenuItem copyItem = new JMenuItem("Copy table");
-            JMenuItem fileExit = new JMenuItem("Exit");
+            JMenuItem fileItem = new JMenuItem("Save image", KeyEvent.VK_S);
+            fileItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
+            JMenuItem copyItem = new JMenuItem("Copy table", KeyEvent.VK_C);
+            copyItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
+            JMenuItem fileExit = new JMenuItem("Exit", KeyEvent.VK_E);
+            fileExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
             menuFile.add(fileItem);
             menuFile.add(copyItem);
             menuFile.addSeparator();

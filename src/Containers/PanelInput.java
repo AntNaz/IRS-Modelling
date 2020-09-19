@@ -32,18 +32,18 @@ public class PanelInput extends JPanel {
         }
         
         PanelInput(int height) {
-            setPreferredSize(new Dimension(220, height - 100));
+            setPreferredSize(new Dimension(200, height - 100));
             setBackground(Color.LIGHT_GRAY);
             setBorder(BorderFactory.createLoweredBevelBorder());
             setLayout(new FlowLayout());
             JLabel label1 = new JLabel("IRS-data:");
             label1.setHorizontalAlignment((int) CENTER_ALIGNMENT);
             label1.setPreferredSize(new Dimension(190, 40));
-            label1.setFont(new Font("Times_New_Roman", Font.BOLD, 20));
+            label1.setFont(new Font("Times_New_Roman", Font.BOLD, 18));
             this.add(label1);
             JPanel doublePanel = new JPanel();
             doublePanel.setLayout(new GridLayout(12, 2, 5, 5));
-            doublePanel.setPreferredSize(new Dimension(200,350));
+            doublePanel.setPreferredSize(new Dimension(190,350));
             doublePanel.setBackground(Color.LIGHT_GRAY);
             doublePanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
         
