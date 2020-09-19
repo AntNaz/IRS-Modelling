@@ -113,6 +113,8 @@ public class PanelInput extends JPanel {
                     System.out.println("\nButton was pressed!");
                     try {
                         for (int n = 0; n<10; n++){
+                            textFields[n].setText(textFields[n].getText().replace(" ", ""));
+                            textFields[n].setText(textFields[n].getText().replace(",", "."));
                             if (textFields[n].getText().trim().equals("")) textFields[n].setText("0");
                             BigDecimal bd = new BigDecimal((textFields[n].getText().replace(",", ".")));
                             MainClass.getPoints()[n].setAmount((int)(((bd).setScale(10,(BigDecimal.ROUND_HALF_UP)).doubleValue()*10))); //bd.setScale(5,BigDecimal.ROUND_HALF_DOWN).intValue()*570;
