@@ -92,21 +92,6 @@ public class MainClass {
         MainWindow frame = new MainWindow();
 //      Установка иконки приложению
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getClassLoader().getResource("icon7.png")));
-
-//        String[] columnNames = {"name", "Fe2", "Fe3"};
-//            String[] names = new String[20];
-//            String[][] data = new String[20][3];
-//            for (int i =0; i<20; i++){
-//                data [i][0] = MainClass.getTripplePoints()[i].getFullName();
-//                data[i][1] = Integer.toString(MainClass.getTripplePoints()[i].getFe2Amount());
-//                data[i][2] = Integer.toString(MainClass.getTripplePoints()[i].getFe3Amount());
-//                
-//            }
-////            
-//            frame.tableResults.setModel(new DefaultTableModel(data, columnNames));
-//            frame.tableResults.revalidate();
-//            
-        //buildElements();
     }
 
     public static void main(String[] args) {
@@ -294,14 +279,6 @@ public class MainClass {
         System.out.println(alAmount);
         System.out.println(iter);
         System.out.println(sumPer);
-
-//       PanelResults.tableResults.revalidate();
-         
-         
-          
-         
-//         PanelResults.updateTable();
-         
          
            // Проверка количества элементов в сетке.
 //        int n =0;
