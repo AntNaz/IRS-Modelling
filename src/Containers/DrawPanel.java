@@ -14,12 +14,22 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import java.awt.Polygon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import main.MainClass;
+import main.SVGWriter;
 
 /**
  *
@@ -33,6 +43,8 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
     private static int yPointDragged;
     private static int xPoint2;
     private static int yPoint2;
+    private JPopupMenu popup = new JPopupMenu();
+    private JMenuItem saveItem = new JMenuItem("Save image");
 
     @Override
     public void setLocation(int x, int y) {
@@ -74,6 +86,36 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
     
     Point newViewportPosition = new Point();
       public DrawPanel() {
+        popup.add(saveItem);
+        saveItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {try {
+                    //
+                    if(MainClass.getMatrix()[0][0] != null){
+                            SVGWriter.writeSVG();
+                            JOptionPane.showMessageDialog(null, "Image was saved.");
+                        }
+                        else JOptionPane.showMessageDialog(null, "Модель не построена!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    } catch (IOException ex) {
+                        System.out.println("error");
+                    }
+                }
+            });
+        this.add(popup);
+        this.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent e) {
+                    showPopup(e);
+                }
+                public void mouseReleased(MouseEvent e) {
+                  showPopup(e);
+                }
+                private void showPopup(MouseEvent e) {
+                    
+                  if (e.isPopupTrigger()) {
+                    popup.show(e.getComponent(), e.getX(), e.getY());
+                  }
+                }
+        });
         addMouseWheelListener(this);
         addMouseMotionListener(new MouseMotionListener() {
         public void mouseMoved(MouseEvent e) {
