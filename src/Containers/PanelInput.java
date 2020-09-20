@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import javax.swing.*;
 import main.MainClass;
@@ -99,7 +101,24 @@ public class PanelInput extends JPanel {
             doublePanel.add(startButton);
             doublePanel.add(buttonReset);
             
-            
+            startButton.addKeyListener(
+                new KeyAdapter() {
+                   public void keyPressed(KeyEvent e) {
+                     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                       startButton.doClick();
+                     }
+                   }
+                });
+            buttonReset.addKeyListener(
+                new KeyAdapter() {
+                   public void keyPressed(KeyEvent e) {
+                     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                       buttonReset.doClick();
+                       textFields[0].requestFocus();
+                     }
+                   }
+                });
+
             startButton.addActionListener(new ActionListener() {
                 int summ = 0;
                 
