@@ -195,7 +195,7 @@ public class PanelInput extends JPanel {
                     textIter.setEditable(true);
                     DrawPanel.setK();
                     DrawPanel.setZeroPosition();
-                    
+                    textFields[0].requestFocus();
                     for (int i = 0; i<20; i++) {
                         MainClass.getTripplePoints()[i].setAmountsZero();
                     }
