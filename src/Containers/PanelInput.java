@@ -27,8 +27,8 @@ import main.MainClass;
  */
 public class PanelInput extends JPanel {
         private int height = 800;
-        private JButton startButton = new JButton("Start");
-        private JButton buttonReset = new JButton("reset");
+        private JButton startButton = new JButton("Старт");
+        private JButton buttonReset = new JButton("Сброс");
         PanelInput() {
             
         }
@@ -38,7 +38,7 @@ public class PanelInput extends JPanel {
             setBackground(Color.LIGHT_GRAY);
             setBorder(BorderFactory.createLoweredBevelBorder());
             setLayout(new FlowLayout());
-            JLabel label1 = new JLabel("IRS-data:");
+            JLabel label1 = new JLabel("Данные ИКС:");
             label1.setHorizontalAlignment((int) CENTER_ALIGNMENT);
             label1.setPreferredSize(new Dimension(190, 40));
             label1.setFont(new Font("Times_New_Roman", Font.BOLD, 18));
@@ -80,7 +80,7 @@ public class PanelInput extends JPanel {
                 doublePanel.add(labels[n]);
                 doublePanel.add(textFields[n]);
             }
-            JLabel labelIter = new JLabel("Iterations");
+            JLabel labelIter = new JLabel("Итерации");
             labelIter.setFont(new Font("Times_New_Roman", Font.BOLD, 14));
             doublePanel.add(labelIter);
             JTextField textIter = new JTextField();
@@ -129,7 +129,7 @@ public class PanelInput extends JPanel {
                     MainClass.setZeroAmounts();
                     //MainClass.setIter(1);
                     
-                    System.out.println("\nButton was pressed!");
+                    //System.out.println("\nButton was pressed!");
                     try {
                         for (int n = 0; n<10; n++){
                             textFields[n].setText(textFields[n].getText().replace(" ", ""));
@@ -163,12 +163,12 @@ public class PanelInput extends JPanel {
                         }
                         else 
                         {
-                            if (positive || iter <=0 || iter>10000) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений!", "Error", JOptionPane.ERROR_MESSAGE);
-                            else JOptionPane.showMessageDialog(null, "Числа не могут быть отрицательными!", "Error", JOptionPane.ERROR_MESSAGE);
+                            if (positive || iter <=0 || iter>10000) JOptionPane.showMessageDialog(null, "Проверьте правильность ввода значений.", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                            else JOptionPane.showMessageDialog(null, "Числа не могут быть отрицательными.", "Ошибка", JOptionPane.ERROR_MESSAGE);
                         }
                         
                     } catch(Exception ex) {
-                        JOptionPane.showMessageDialog(null, "Неверный формат данных!", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Неверный формат данных.", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     }
                     summ = 0;
                     MainWindow.getInfo().revalidate();

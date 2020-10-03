@@ -145,38 +145,38 @@ public class MainWindow extends JFrame {
             JMenuBar menuBar = new JMenuBar();
             setJMenuBar(menuBar);
             //menuBar.setPreferredSize(new Dimension(width, 30));
-            JMenu menuFile = new JMenu("File");
+            JMenu menuFile = new JMenu("Файл");
             menuFile.setMnemonic(KeyEvent.VK_F);
             //menuFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_DOWN_MASK));
-            JMenu view = new JMenu("View");
-            JMenuItem help = new JMenuItem("Help",KeyEvent.VK_H);
+            //JMenu view = new JMenu("View");
+            //JMenuItem help = new JMenuItem("Help",KeyEvent.VK_H);
             menuBar.add(menuFile);
             //menuBar.add(view);
             //menuBar.add(help);
 
 
-            JMenuItem fileItem = new JMenuItem("Save image", KeyEvent.VK_S);
+            JMenuItem fileItem = new JMenuItem("Сохранить изображение");
             fileItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
-            JMenuItem copyItem = new JMenuItem("Copy table", KeyEvent.VK_C);
+            JMenuItem copyItem = new JMenuItem("Скопировать таблицу");
             copyItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
-            JMenuItem fileExit = new JMenuItem("Exit", KeyEvent.VK_E);
+            JMenuItem fileExit = new JMenuItem("Выход");
             fileExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
             menuFile.add(fileItem);
             menuFile.add(copyItem);
             menuFile.addSeparator();
             menuFile.add(fileExit);
             
-            help.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "Press \"Ctrl+C\" to copy data from table.\nPress \"Ctrl+V\" to paste data to Excel.");
-                }
-            });
+//            help.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    JOptionPane.showMessageDialog(null, "Press \"Ctrl+C\" to copy data from table.\nPress \"Ctrl+V\" to paste data to Excel.");
+//                }
+//            });
             
             fileExit.addActionListener(new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (e.getActionCommand().equals("Exit")) {
+                    if (e.getActionCommand().equals("Выход")) {
                         System.exit(0);
                     }
                 }
@@ -187,9 +187,9 @@ public class MainWindow extends JFrame {
                     try {
                         if(MainClass.getMatrix()[0][0] != null){
                             SVGWriter.writeSVG();
-                            JOptionPane.showMessageDialog(null, "Image was saved.");
+                            JOptionPane.showMessageDialog(null, "Изображение сохранено.","Сообщение", JOptionPane.INFORMATION_MESSAGE);
                         }
-                        else JOptionPane.showMessageDialog(null, "Модель не построена!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        else JOptionPane.showMessageDialog(null, "Модель не построена.", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     } catch (IOException ex) {
                         System.out.println("error");
                     }

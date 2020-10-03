@@ -44,7 +44,7 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
     private static int xPoint2;
     private static int yPoint2;
     private JPopupMenu popup = new JPopupMenu();
-    private JMenuItem saveItem = new JMenuItem("Save image");
+    private JMenuItem saveItem = new JMenuItem("Сохранить изображение");
 
     @Override
     public void setLocation(int x, int y) {
@@ -93,9 +93,9 @@ public class DrawPanel extends JPanel  implements MouseWheelListener {
                     //
                     if(MainClass.getMatrix()[0][0] != null){
                             SVGWriter.writeSVG();
-                            JOptionPane.showMessageDialog(null, "Image was saved.");
+                            JOptionPane.showMessageDialog(null, "Изображение сохранено.","Сообщение", JOptionPane.INFORMATION_MESSAGE);
                         }
-                        else JOptionPane.showMessageDialog(null, "Модель не построена!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        else JOptionPane.showMessageDialog(null, "Модель не построена.", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     } catch (IOException ex) {
                         System.out.println("error");
                     }

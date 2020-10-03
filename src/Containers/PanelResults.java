@@ -30,7 +30,7 @@ public class PanelResults extends JPanel{
           
     private JTable tableResults = new JTable();
     private JPopupMenu popup = new JPopupMenu();
-    private JMenuItem copyItem = new JMenuItem("Copy");
+    private JMenuItem copyItem = new JMenuItem("Копировать");
     
     public JTable getTableResults(){
         return tableResults;
@@ -42,7 +42,7 @@ public class PanelResults extends JPanel{
                         data[i][2] = Double.toString(MainClass.getTripplePoints()[i].getFe3Amount());
                 
                     }
-            String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
+            String[] columnNames = {"Окружение", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
             DefaultTableModel model = new DefaultTableModel(data, columnNames){
                 @Override
                 public boolean isCellEditable(int rowIndex, int columnIndex){
@@ -66,16 +66,16 @@ public class PanelResults extends JPanel{
         PanelResults(){           
             setUp();
             setBorder(BorderFactory.createLoweredBevelBorder());
-            Font font = new Font("Times New Roman", Font.BOLD, 18);
+            Font font = new Font("Times New Roman", Font.BOLD, 14);
 //            setBackground(Color.GRAY);
             
             JLabel text = new JLabel();
             text.setFont(font);
-            text.setText("Modelling results");
+            text.setText("Результаты моделирования");
             add(text);
             tableResults.setFont(new Font( "SansSerif", Font.PLAIN, 14 ));
             tableResults.setRowHeight(tableResults.getRowHeight()+2);
-            String[] columnNames = {"Name", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
+            String[] columnNames = {"Окружение", "Fe\u00B2\u207A", "Fe\u00B3\u207A"};
             tableResults.setPreferredScrollableViewportSize(new Dimension(210, 360));
             //tableResults.setBackground(Color.LIGHT_GRAY);
             JScrollPane scrollpane = new JScrollPane(tableResults);
