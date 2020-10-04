@@ -157,7 +157,7 @@ public class MainWindow extends JFrame {
 
             JMenuItem fileItem = new JMenuItem("Сохранить изображение");
             fileItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
-            JMenuItem copyItem = new JMenuItem("Скопировать таблицу");
+            JMenuItem copyItem = new JMenuItem("Копировать таблицу");
             copyItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
             JMenuItem fileExit = new JMenuItem("Выход");
             fileExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
