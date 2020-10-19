@@ -43,6 +43,7 @@ public class MainWindow extends JFrame {
     
     public MainWindow() {
         setSize(width, heigh);
+        this.setLocationByPlatform(true);
         setVisible(true);
         setTitle("IRS-Modelling");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
